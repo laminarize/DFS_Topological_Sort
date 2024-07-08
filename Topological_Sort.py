@@ -51,7 +51,7 @@ for keys, values in graph.items():
 def build_schedule(graph, schedule, start_node):
     if start_node not in visited:
         if start_node in graph.keys():
-            for pre_req in graph[start_node]:
+            for pre_req in graph.get(start_node, []):
                 node_children[start_node] -= 1
                 build_schedule(graph, schedule, pre_req)
                 if node_children[start_node] == 0 and start_node != None:
